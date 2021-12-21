@@ -35,6 +35,7 @@ export function USER_GET(token) {
     },
   };
 }
+
 export function USER_POST(body) {
   return {
     url: API_URL + "/api/user",
@@ -44,6 +45,19 @@ export function USER_POST(body) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(body),
+    },
+  };
+}
+
+export function PHOTO_POST(formData, token) {
+  return {
+    url: API_URL + "/api/photo",
+    options: {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+      body: formData,
     },
   };
 }
