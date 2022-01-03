@@ -8,13 +8,12 @@ import styles from "./FeedPhotos.module.css";
 
 const FeedPhotos = ({ setModalPhoto }) => {
   const { data, loading, error, request } = useFetch();
+  console.log(data);
 
   React.useEffect(() => {
     async function fetchPhotos() {
       const { url, options } = PHOTOS_GET({ page: 1, total: 6, user: 0 });
       const { response, json } = await request(url, options);
-
-      console.log(json);
     }
 
     fetchPhotos();
